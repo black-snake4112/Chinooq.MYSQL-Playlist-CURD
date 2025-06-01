@@ -1,9 +1,6 @@
+<!-- update.php -->
+<?php require_once '../db.php'; ?>
 
- <?php require_once '../db.php'; ?>  
- 
- <!-- database connection to file db.php -->
-
- <!-- simple html structure -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +9,7 @@
     <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-<!-- code for the navigation bar  -->
+
 <header class="navbar">
     <h2>🎵 Crafted with by Ghulam Murtaza 🎵</h2>
     <nav>
@@ -21,30 +18,28 @@
     </nav>
 </header>
 
-
-<!-- code for the blocks/container where update/edit section exists -->
 <main class="main-content edit-box">
     <h1>✏️ Edit Album</h1>
 
     <?php
-
-    //  Gets the album id from chinook database 
     $errors = [];
+    $success = false;
+
     $id = $_GET['id'] ?? null;    
     if (!$id || !is_numeric($id)) {
-        echo "<p class='error'>Invalid album ID.</p>";
-        exit;}
-//Loads the album with id from chinook database
+        echo "<p class='alert alert-error'>Invalid album ID.</p>";
+        exit;
+    }
 
+    // Load album data
     $stmt = $pdo->prepare("SELECT * FROM albums WHERE AlbumId = :id");
     $stmt->execute([':id' => $id]);
     $album = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$album) {
-        echo "<p class='error'>Album not found.</p>";
+        echo "<p class='alert alert-error'>Album not found.</p>";
         exit;
     }
-// handling form submission POST request
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $title = trim($_POST['title'] ?? '');
@@ -64,38 +59,50 @@
                 ':artistId' => $artistId,
                 ':id' => $id
             ]);
-            echo "<p style='color:green; font-weight:bold;'>Album updated successfully!</p>";
-            echo "<p><a href='read.php' class='button'>← Back to Albums</a></p>";
-            exit;
+            $success = true;
+
+            // Reload album to show updated data in form
+            $stmt = $pdo->prepare("SELECT * FROM albums WHERE AlbumId = :id");
+            $stmt->execute([':id' => $id]);
+            $album = $stmt->fetch(PDO::FETCH_ASSOC);
         }
     }
 
+    // Get artist list for dropdown
     $artists = $pdo->query("SELECT ArtistId, Name FROM artists ORDER BY Name")->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
-    <?php if ($errors): ?>
-        <div class="error">
+    <!-- Show error alert if errors exist -->
+    <?php if (!empty($errors)): ?>
+        <div class="alert alert-error">
             <ul>
                 <?php foreach ($errors as $err): ?>
-                    <li><?=htmlspecialchars($err)?></li>
+                    <li><?= htmlspecialchars($err) ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
     <?php endif; ?>
 
-
-    <!-- HTML Form -->
+    <!-- Show success alert -->
+    <?php if ($success): ?>
+        <div class="alert alert-success">
+            Album updated successfully!
+        </div>
+    <?php endif; ?>
 
     <form method="post" action="">
         <label for="title">Album Title:</label>
-        <input type="text" id="title" name="title" value="<?=htmlspecialchars($_POST['title'] ?? $album['Title'])?>" required />
+        <input type="text" id="title" name="title" 
+               value="<?= htmlspecialchars($_POST['title'] ?? $album['Title']) ?>" required />
 
         <label for="artist">Artist:</label>
         <select id="artist" name="artist" required>
             <option value="">-- Select Artist --</option>
             <?php foreach ($artists as $artist): ?>
-                <option value="<?=$artist['ArtistId']?>" <?= ((isset($_POST['artist']) && $_POST['artist'] == $artist['ArtistId']) || (!isset($_POST['artist']) && $album['ArtistId'] == $artist['ArtistId'])) ? 'selected' : '' ?>>
-                    <?=htmlspecialchars($artist['Name'])?>
+                <option value="<?= $artist['ArtistId'] ?>" 
+                    <?= ((isset($_POST['artist']) && $_POST['artist'] == $artist['ArtistId']) 
+                        || (!isset($_POST['artist']) && $album['ArtistId'] == $artist['ArtistId'])) ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($artist['Name']) ?>
                 </option>
             <?php endforeach; ?>
         </select>
@@ -104,15 +111,11 @@
     </form>
 </main>
 
-
-<!-- Code for footer at the bottom -->
-
 <footer class="footer">
     🎵 Crafted with by <strong>Ghulam Murtaza</strong> | Roll Number: <strong>B01801612</strong> |
     Chinook Album Manager 2025 | Subject: <strong>Server Side Web Development</strong> |
     Module Coordinator & Lead Tutor: <strong>Graeme McRobbie</strong> 🎶
 </footer>
-
 
 </body>
 </html>
