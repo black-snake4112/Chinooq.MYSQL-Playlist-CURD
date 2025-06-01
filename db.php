@@ -19,5 +19,4 @@ try {
     echo "Connection to database is failed: " . $e->getMessage();
     exit;}?>
 
-<!-- this php code connects the database known as chinook using the PDO , 
-and if the connection failed it throws an error that Connection to database is failed -->
+<!-- this php code connects the database known as chinook using the PDO , and if the connection failed it throws an error that Connection to database is failed -->

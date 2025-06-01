@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <img src="images/logo.png" alt="Chinook Logo" />
+    <img src="images/logo.png"  />
 
     <h1>🎵 Chinook Album Manager</h1>
     <p>Welcome! Use the button below to manage albums.</p>

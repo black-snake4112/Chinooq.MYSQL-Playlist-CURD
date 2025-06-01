@@ -1,4 +1,7 @@
-<?php require_once '../db.php'; ?>
+<?php require_once '../db.php'; ?>  
+ <!-- database connection to file db.php -->
+
+ <!-- simple html structure -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,9 @@
 </head>
 <body>
 
+
+<!-- code for the navigation bar  -->
+
 <header class="navbar">
     <h2>🎵 Crafted with by Ghulam Murtaza 🎵</h2>
     <nav>
@@ -16,9 +22,11 @@
     </nav>
 </header>
 
+
+<!-- it is the table container or block contains id , title , artist , actions -->
+
 <main class="main-content">
     <h1>📚 View All Albums</h1>
-
     <table>
         <thead>
             <tr>
@@ -26,8 +34,9 @@
                 <th>Title</th>
                 <th>Artist</th>
                 <th>Actions</th>
-            </tr>
-        </thead>
+            </tr>  </thead>
+
+
         <tbody>
             <?php
             $sql = "SELECT albums.AlbumId, albums.Title, artists.Name 
@@ -42,14 +51,12 @@
                         <td>
                             <a href='update.php?id={$row['AlbumId']}' class='button'>✏️ Edit</a>
                             <a href='confirm_delete.php?id={$row['AlbumId']}' class='button button-danger'>🗑️ Delete</a>
-                        </td>
-                    </tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-</main>
+                        </td></tr>"; } ?> </tbody>  </table> </main>
 
+
+
+
+<!-- Code for footer at the bottom -->
 <footer class="footer">
     🎵 Crafted with by <strong>Ghulam Murtaza</strong> | Roll Number: <strong>B01801612</strong> |
     Chinook Album Manager 2025 | Subject: <strong>Server Side Web Development</strong> |
