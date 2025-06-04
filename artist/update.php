@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update Artist</title>
+    <title>Edit Artist</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>

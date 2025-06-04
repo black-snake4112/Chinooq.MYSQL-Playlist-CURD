@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>View Albums</title>
+    <title>Explore Albums</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>

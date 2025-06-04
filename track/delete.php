@@ -9,5 +9,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("DELETE FROM tracks WHERE TrackId = :id");
         $stmt->execute([':id' => $id]);}}
 
-        redirect the user to the read.php page after deletion
+        // redirect the user to the read.php page after deletion
 header("Location: read.php");exit;

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Delete Track</title>
+    <title> Confirm Delete Track</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
