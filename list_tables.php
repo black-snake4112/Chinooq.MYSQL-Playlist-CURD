@@ -9,4 +9,4 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
     echo "<li>{$row[0]}</li>";}
 echo "</ul>";
 
-#actually this code is useful for debugging and admin dashboards 
+#actually this code is useful for debugging and for the admin dashboards 

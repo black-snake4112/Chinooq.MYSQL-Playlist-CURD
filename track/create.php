@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
-<header class="navbar">
+   
+<!-- code for navbar (top of header section or top of the page) -->
+<header class="navigationbar">
     <h2>🎵 Crafted with by Ghulam Murtaza 🎵</h2>
     <nav>
         <a href="../index.php" class="nav-link">🏠 Home</a>
@@ -16,7 +17,7 @@
     </nav>
 </header>
 
-<main class="main-content form-box">
+<main class="Focus-Section form-box">
     <h1>➕ Add New Track</h1>
 
     <?php

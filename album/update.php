@@ -10,7 +10,8 @@
 </head>
 <body>
 
-<header class="navbar">
+<!-- code for navbar (top of header section or top of the page) -->
+<header class="navigationbar">
     <h2>🎵 Crafted with by Ghulam Murtaza 🎵</h2>
     <nav>
         <a href="../index.php" class="nav-link">🏠 Home</a>
@@ -18,7 +19,7 @@
     </nav>
 </header>
 
-<main class="main-content edit-box">
+<main class="Focus-Section edit-box">
     <h1>✏️ Edit Album</h1>
 
     <?php
@@ -111,6 +112,7 @@
     </form>
 </main>
 
+<!-- Code for footer at the bottom -->
 <footer class="footer">
     🎵 Crafted with by <strong>Ghulam Murtaza</strong> | Roll Number: <strong>B01801612</strong> |
     Chinook Album Manager 2025 | Subject: <strong>Server Side Web Development</strong> |

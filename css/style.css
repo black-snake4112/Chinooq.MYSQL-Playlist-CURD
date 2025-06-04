@@ -31,8 +31,8 @@ p {
     color: #555;
 }
 
-/* Navbar */
-.navbar {
+/* navigationbar  it is the navbar at the top of page above header section*/
+.navigationbar {
     background-color: #343a40;
     color: white;
     padding: 15px 30px;
@@ -42,12 +42,12 @@ p {
     flex-wrap: wrap;
 }
 
-.navbar h2 {
+.navigationbar h2 {
     margin: 0;
     font-size: 20px;
 }
 
-.navbar nav {
+.navigationbar nav {
     display: flex;
     gap: 15px;
 }
@@ -70,29 +70,29 @@ p {
     color: #fff;
 }
 
-/* Main Content */
-.main-content {
+/* Focus section means the main page targated area */
+.Focus-Section {
     padding: 40px;
     max-width: 1000px;
     margin: auto;
 }
 
 /* Page specific content boxes */
-.main-content.form-box,
-.main-content.edit-box,
-.main-content.delete-box {
+.Focus-Section.form-box,
+.Focus-Section.edit-box,
+.Focus-Section.delete-box {
     max-width: 600px;
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
     border-radius: 8px;
 }
 
-.main-content.edit-box , .main-content.form-box  {
+.Focus-Section.edit-box , .Focus-Section.form-box  {
     max-width: 500px;
     text-align: center;
     margin-top: 120px;
 }
-.main-content.delete-box {
+.Focus-Section.delete-box {
     max-width: 500px;
     text-align: center;
     margin-top: 165px;
@@ -153,7 +153,7 @@ th {
     background-color: #5a6268;
 }
 
-/* Footer */
+/* Footer the bottom of page with creator details */
 .footer {
     background-color: #343a40;
     color: white;
@@ -217,7 +217,7 @@ form .button.yellow:hover {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .navbar {
+    .navigationbar {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -250,7 +250,7 @@ form .button.yellow:hover {
 
 
 /* albums searching , sorting */
-/* ===== Updated Album Filter/Search/Sort Styling (One Row) ===== */
+
 .album-filter-form {
     display: flex;
     flex-direction: row; /* Forces horizontal layout */
@@ -292,9 +292,9 @@ form .button.yellow:hover {
 
 
 
-/* code for error messages in album / update.php */
+/* code for error messages or ALERT BOX in album / update.php */
 
-/* Alert box base style */
+
 .alert {
     padding: 15px;
     margin: 20px 0;
@@ -315,4 +315,8 @@ form .button.yellow:hover {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
+}
+
+.track-group {
+    margin-bottom: 15px;
 }

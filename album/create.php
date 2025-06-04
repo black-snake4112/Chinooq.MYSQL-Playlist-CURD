@@ -3,15 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Add New Album</title>
+    <title>Create New Album</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <style>
-        .track-group { margin-bottom: 15px; }
-    </style>
 </head>
 <body>
 
-<header class="navbar">
+<!-- code for navbar (top of header section or top of the page) added navlinks for  Home , View Albums , Add Artist , Add Tracks -->
+<header class="navigationbar">
     <h2>🎵 Crafted with by Ghulam Murtaza 🎵</h2>
     <nav>
         <a href="../index.php" class="nav-link">🏠 Home</a>
@@ -21,7 +19,7 @@
     </nav>
 </header>
 
-<main class="main-content form-box">
+<main class="Focus-Section form-box">
     <h1>➕ Add Album & Artist</h1>
 
     <?php
@@ -32,8 +30,8 @@
         $artistId = $_POST['artist'] ?? '';
         $newArtist = trim($_POST['new_artist'] ?? '');
 
-        if (!$title) $errors[] = "Album title is required.";
-        if (!$artistId && !$newArtist) $errors[] = "Select an artist or add a new one.";
+        if (!$title) $errors[] = "Enter Album title please.";
+        if (!$artistId && !$newArtist) $errors[] = "Select an artist or Create a new Artist .";
 
         if (empty($errors)) {
             // Add new artist if provided
@@ -88,6 +86,7 @@
     </form>
 </main>
 
+<!-- Code for footer at the bottom -->
 <footer class="footer">
     🎵 Crafted with by <strong>Ghulam Murtaza</strong> | Roll Number: <strong>B01801612</strong> |
     Chinook Album Manager 2025 | Subject: <strong>Server Side Web Development</strong> |
